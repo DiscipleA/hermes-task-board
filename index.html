@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A small, local task board for test-first automation demonstrations.">
+  <title>Hermes Task Board</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./src/main.mjs"></script>
+</head>
+<body>
+  <main class="board">
+    <header>
+      <p class="eyebrow">HERMES / AUTOMATION LAB</p>
+      <h1>A little more done.</h1>
+      <p class="intro">A small task board. One clear next step.</p>
+      <p class="demo-note">Teaching demo: tasks reset on refresh. Search currently matches exact letter case.</p>
+    </header>
+    <section aria-labelledby="add-heading">
+      <h2 id="add-heading">Your next task</h2>
+      <form id="task-form">
+        <label for="task-title">Task title</label>
+        <div class="add-row">
+          <input id="task-title" name="title" type="text" placeholder="Read a chapter" autocomplete="off">
+          <button type="submit">Add task</button>
+        </div>
+      </form>
+    </section>
+    <section aria-labelledby="tasks-heading">
+      <h2 id="tasks-heading">Your board</h2>
+      <label for="search">Search tasks</label>
+      <input id="search" type="search" placeholder="Search by title" autocomplete="off" aria-describedby="search-help">
+      <p id="search-help" class="hint">Case-sensitive search is a seeded demo limitation.</p>
+      <div class="filters" role="group" aria-label="Task status filter">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="active" aria-pressed="false">Active</button>
+        <button type="button" data-filter="completed" aria-pressed="false">Completed</button>
+      </div>
+      <p id="counts" role="status" aria-live="polite" aria-atomic="true">0 total · 0 active · 0 completed · 0 shown</p>
+      <ul id="task-list" aria-label="Tasks"></ul>
+      <p id="empty-message" class="empty">No matching tasks. Add a task or adjust your filters.</p>
+    </section>
+    <footer>Local only · No accounts · No dependencies</footer>
+  </main>
+</body>
+</html>
